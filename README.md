@@ -220,7 +220,7 @@ Release Notes
 
 2013-02-10
 
--  Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
+- Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
 - Made a note about the slightly quirky behavior after settings get updated.
 - Included settings file improvements from [adzenith](https://github.com/adzenith).
 

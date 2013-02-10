@@ -1,0 +1,5 @@
+# http://www.sublimetext.com/forum/viewtopic.php?f=6&t=1934#p8925
+
+*.pyc
+*.cache
+*.sublime-project

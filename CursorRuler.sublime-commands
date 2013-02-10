@@ -1,0 +1,7 @@
+[
+  // Toggles activation of CursorRuler.
+  {
+    "caption":  "CursorRuler: Toggle Enabled/Disabled",
+    "command":  "cursor_ruler_toggle"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  // See README.md for details.
+
+  "cursor_rulers":  [-0.1, 0.2],
+  "enabled":        true,
+  "synchronized":   true
+}

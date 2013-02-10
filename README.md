@@ -161,8 +161,6 @@ to make your normal rulers "thicker" and therefore distinguishable from the curs
 Also, you may instead consider making your cursor rulers have a thicker style than your normal rulers.
 
 
-
-
 ### Ruler Colors
 
 Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  It's also the same way for line numbers in the gutter. Rulers and gutter text get their colors from your color scheme's foreground and background settings.  For rulers the background setting overrides the foreground setting.
@@ -180,6 +178,8 @@ Notes
 - In ST2 there is a major bug which is described below.
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.
+
+- The positioning of the cursor rulers is scaled according to the font size.  The larger the font size the greater the chance that gaps will get introduced into "thick" cursor ruler styles like the column highlighting style.  The size of the gaps also increase with font size.
 
 - Using the column-like highlighting style while using a variable-width font looks strange.  Perhaps this should considered a bug?
 

@@ -90,7 +90,7 @@ The following settings are available and optional.  They are shown here with the
 
 ### cursor_rulers
 
-The column positions relative to the cursor position where dynamic cursor rulers appear.  They can be any decimal number.  0 represents the current cursor position so
+A list of column positions relative to the cursor position where dynamic cursor rulers appear.  They can be any decimal number.  0 represents the current cursor position so
 
     "cursor_rulers": [0]
 

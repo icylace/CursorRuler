@@ -194,6 +194,8 @@ Notes
 
 - As of ST3 build 3011 the `add_on_change()` method is still not yet implemented and therefore not used.  In ST2 it is available and used.
 
+- After you save changes to your user settings or your CursorRuler settings the changes take effect once the cursor state changes.
+
 
 ### Known Major Bug for Sublime Text 2 Only
 

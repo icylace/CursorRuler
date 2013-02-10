@@ -167,9 +167,7 @@ Also, you may instead consider making your cursor rulers have a thicker style th
 
 Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  It's also the same way for line numbers in the gutter. Rulers and gutter text get their colors from your color scheme's foreground and background settings.  For rulers the background setting overrides the foreground setting.
 
-Despite the current lack of ability to directly set colors for each of these things (as of ST2 build 2219 and ST3 build 3011) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903):
-
-    http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
+Despite the current lack of ability to directly set colors for each of these things (as of ST2 build 2219 and ST3 build 3011) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
 
 I'm not aware of a way to have different foreground colors between rulers and gutter text.  This may be a forgivably minor limitation but it would be nice if it were possible.
 

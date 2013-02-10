@@ -233,7 +233,7 @@ def plugin_loaded():
 
 
 # In ST2 this prevents an error from happening if this file (CursorRuler.py)
-# is saved.  Since this is only an issue during development it remains commented
-# out but not removed for the purpose of documentation.
-# if st == 2:
-#   CursorRuler.init()
+# is saved.  This also prevents a missing attribute error from occurring
+# at startup.
+if st == 2:
+  CursorRuler.init()

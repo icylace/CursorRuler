@@ -19,7 +19,7 @@ Why Is This Useful?
 Features
 --------
 
-- Use multiple dynamic rulers to create different highlighting styles including a "thickening" effect which can be used to emulate column highlighting.
+- Use multiple dynamic rulers to create different highlighting styles including a "thickening" effect which can be used to simulate column highlighting.
 
 - Supports muliple cursors.
 

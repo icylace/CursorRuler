@@ -197,15 +197,13 @@ Notes
 
 ### Known Major Bug for Sublime Text 2 Only
 
-While the plugin is enabled and a selection is being extended with mouse dragging it freezes the entire editor when moving the mouse pointer out of the view or onto the view's minimap.
+While the plugin is enabled and a selection is being extended with mouse dragging it freezes the entire editor when moving the mouse pointer out of the view or onto the view's minimap.  The freeze in this scenario is caused by `on_selection_modified()` attempting to call the ST2 API or even attempting to print to the console.
 
-The freeze in this scenario is caused by `on_selection_modified()` attempting to call the ST2 API or even attempting to print to the console.
+The workaround is to do selection without mouse dragging or use mouse dragging while keeping the pointer within the view.
 
-The workaround is to do selection without mouse dragging.  Or use mouse dragging while keeping the pointer within the view.
+I have attempted to use threading and other potential solutions to no avail. I have not found a proper solution to this in ST2.
 
-I have attempted to use threading and other potential solutions to no avail. I have not found a viable solution to this in ST2.
-
-ST3 seems to completely avoid this dangerous scenario.  I suppose it's due to its API being thread-safe.
+ST3 seems to completely avoid this problematic scenario.  I suppose it's due to its API being thread-safe.
 
 
 ### Known Minor Bug

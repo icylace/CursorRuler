@@ -179,7 +179,7 @@ Notes
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.
 
-- The positioning of the cursor rulers is scaled according to the font size.  The larger the font size the greater the chance that gaps will get introduced into "thick" cursor ruler styles like the column highlighting style.  The size of the gaps also increase with font size.
+- The positioning of the cursor rulers is scaled according to the font size.  The larger the font size the greater the chance that gaps will get introduced into "thick" cursor ruler styles like the column highlighting style.  The size of the gaps are also dependent upon the font size.
 
 - Using the column-like highlighting style while using a variable-width font looks strange.  Perhaps this should considered a bug?
 

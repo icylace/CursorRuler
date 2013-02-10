@@ -87,7 +87,10 @@ The following settings are available and optional.  They are shown here with the
       "synchronized":   true
     }
 
-**cursor_rulers**:  The column positions relative to the cursor position where dynamic cursor rulers appear.  They can be any decimal number.  0 represents the current cursor position so
+
+### cursor_rulers
+
+The column positions relative to the cursor position where dynamic cursor rulers appear.  They can be any decimal number.  0 represents the current cursor position so
 
     "cursor_rulers": [0]
 
@@ -125,9 +128,15 @@ This final example is yet another experimental highlighting style.  This one doe
 
 As you can see, a variety of sometimes useful, sometimes strange highlighting possibilities are out there.
 
-**enabled**:  If you have it normally disabled you can enable it for when you need it by using the `CursorRuler: Toggle Enabled/Disabled` command from the Command Palette.  Use the same command again to turn it back off.
 
-**synchronized**:  Multiple views of the same file will show cursor rulers that move together in synchronized fashion.  This is most useful when using the `Rows: 2`, `Rows: 3`, or `Grid: 4` layout and having multiple views of the same file being used in different groups.
+### enabled
+
+If you have it normally disabled you can enable it for when you need it by using the `CursorRuler: Toggle Enabled/Disabled` command from the Command Palette.  Use the same command again to turn it back off.
+
+
+### synchronized
+
+Multiple views of the same file will show cursor rulers that move together in synchronized fashion.  This is most useful when using the `Rows: 2`, `Rows: 3`, or `Grid: 4` layout and having multiple views of the same file being used in different groups.
 
 
 

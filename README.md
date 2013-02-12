@@ -73,7 +73,7 @@ Clone the CursorRuler repository while in your Sublime Text's packages folder:
         %APPDATA%\Sublime Text 2\Packages
         %APPDATA%\Sublime Text 3\Packages
 
-Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing `Ctrl+\`` and then typing `sublime.packages_path()` in it's input field and then pressing enter.
+Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing ``Ctrl+``` and then typing `sublime.packages_path()` in it's input field and then pressing enter.
 
 
 Settings

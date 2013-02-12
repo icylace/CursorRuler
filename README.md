@@ -46,17 +46,17 @@ After installing Package Control, restart Sublime Text and bring up the Command 
 
 ### Without Git
 
-Download the latest source from [GitHub](https://github.com/icylace/CursorRuler) and then copy the CursorRuler folder to your Sublime Text's "Package" folder.
+Download the latest source from [GitHub](https://github.com/icylace/CursorRuler) and then copy the CursorRuler folder to your Sublime Text's packages folder.
 
 
 ### With Git
 
-Clone the CursorRuler repository while in your Sublime Text's "Packages" folder:
+Clone the CursorRuler repository while in your Sublime Text's packages folder:
 
     git clone https://github.com/icylace/CursorRuler.git
 
 
-### The "Package" Folder for Sublime Text 2 and Sublime Text 3
+### The Packages Folder for Sublime Text 2 and Sublime Text 3
 
 - OS X:
 
@@ -73,7 +73,7 @@ Clone the CursorRuler repository while in your Sublime Text's "Packages" folder:
         %APPDATA%\Sublime Text 2\Packages
         %APPDATA%\Sublime Text 3\Packages
 
-
+Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing `Ctrl+\`` and then typing `sublime.packages_path()` in it's input field and then pressing enter.
 
 
 Settings
@@ -172,9 +172,30 @@ Also, you may instead consider making your cursor rulers have a thicker style th
 
 ### Ruler Colors
 
-Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  It's also the same way for line numbers in the gutter. Rulers and gutter text get their colors from your color scheme's foreground and background settings.  For rulers the background setting overrides the foreground setting.
+Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  It's also the same way for line numbers in the gutter.  Rulers and gutter text get their colors from your color scheme's foreground and background settings.  For rulers the background setting overrides the foreground setting.
 
 Despite the current lack of ability to directly set colors for each of these things (as of ST2 build 2219 and ST3 build 3011) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
+
+Basically, you need to change the overall default foreground color and/or background color of the color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
+
+    <key>foreground</key>
+    <string>#00FFFF77</string>
+
+then we would add
+
+    <dict>
+      <key>name</key>
+      <string>Text and Source Base Colors</string>
+      <key>scope</key>
+      <string>text, source</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key>
+        <string>#E6E1DC</string>
+      </dict>
+    </dict>
+
+in order for us to defne our actual default foreground color.
 
 I'm not aware of a way to have different foreground colors between rulers and gutter text.  This may be a forgivably minor limitation but it would be nice if it were possible.
 
@@ -217,6 +238,12 @@ If CursorRuler is added to the "ignored_packages" list in the user preferences t
 
 Release Notes
 -------------
+
+2013-02-12
+
+- Updated the "Ruler Colors" section of the readme file with more details about setting ruler colors.
+- Updated the "The Packages Folder for Sublime Text 2 and Sublime Text 3" section of the readme file with details about another way of getting the packages folder path.
+
 
 2013-02-10
 

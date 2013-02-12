@@ -176,7 +176,7 @@ Speaking of ruler visual style, there's apparently no way to set the color of ru
 
 Despite the current lack of ability to directly set colors for each of these things (as of ST2 build 2219 and ST3 build 3011) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
 
-Basically, you need to change the overall default foreground color and/or background color of the color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
+Basically, you need to change the overall default foreground color and/or background color of your color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
 
     <key>foreground</key>
     <string>#00FFFF77</string>

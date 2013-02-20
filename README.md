@@ -238,7 +238,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ### Similar Plugins
 
-[Cross](https://github.com/chancedai/sublime-cross)
+[Cross](https://github.com/chancedai/sublime-cross) - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
 
 
 

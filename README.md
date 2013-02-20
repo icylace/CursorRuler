@@ -236,27 +236,37 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 - Doesn't work on previewed files.  Perhaps this is beneficial as an indicator for when you're looking at previewed files?
 
 
+### Similar Plugins
+
+[Cross](https://github.com/chancedai/sublime-cross)
+
+
 
 
 Release Notes
 -------------
 
+2013-02-20
+
+- Updated readme:  Added a reference to the Cross plugin.
+
+
 2013-02-14
 
-- Added more information about bugs to the readme file.
+- Updated readme:  Added more information about bugs.
 
 
 2013-02-12
 
-- Updated the "Ruler Colors" section of the readme file with more details about setting ruler colors.
-- Updated the "The Packages Folder for Sublime Text 2 and Sublime Text 3" section of the readme file with details about another way of getting the packages folder path.
+- Updated readme:  Updated the "Ruler Colors" section with more details about setting ruler colors.
+- Updated readme:  Updated the "The Packages Folder for Sublime Text 2 and Sublime Text 3" section with details about another way of getting the packages folder path.
 
 
 2013-02-10
 
 - Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
-- Made a note about the slightly quirky behavior after settings get updated.
 - Included settings file improvements by [adzenith](https://github.com/adzenith).
+- Updated radme:  Made a note about the slightly quirky behavior after settings get updated.
 
 2013-02-09
 

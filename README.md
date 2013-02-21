@@ -35,7 +35,7 @@ Features
 Installation
 ------------
 
-### With Package Control (coming soon)
+### With Package Control
 
 The easiest way to install CursorRuler is through Package Control which is available here:
 
@@ -114,7 +114,7 @@ It's possible there might be some people who would consider this first example u
 
     "cursor_rulers": [-4, -0.1, 0, 0.2, 4]
 
-The potential usefulness comes from ability to know at a glance what is cleanly indented and outdented relative to the cursor.  In this case, the indent spacing is assumed to be 4.  The disadvantage here is that it looks visually cluttered (at least to me).
+The potential usefulness comes from ability to know at a glance what is cleanly indented and outdented relative to the cursor.  In this case the indent spacing is assumed to be 4.  The disadvantage here is that it looks visually cluttered (at least to me).
 
 This next example illustrates a much more experimental "gradient" highlighting style:
 
@@ -245,6 +245,11 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 Release Notes
 -------------
+
+2013-02-21
+
+- Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available in Package Control!
+
 
 2013-02-20
 

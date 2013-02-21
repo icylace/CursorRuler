@@ -1,5 +1,5 @@
 '''
-CursorRuler
+CursorRuler 1.1.1
 
 A plugin for the Sublime Text editor which marks the current cursor position
 using dynamic rulers.
@@ -14,13 +14,15 @@ import sublime, sublime_plugin
 #
 # It's important for us to know if we're running in ST3 or ST2.
 #
-# In Sublime Text 3 build 3010 and older the API is unavailable during program
-# startup.  As of build 3011 `sublime.version()` is available during startup.
+# In Sublime Text 3 build 3010 and older the API is unavailable during
+# program startup.  As of build 3011 `sublime.version()` is available during
+# startup.  If we're unable to get the version build number we make the
+# assumption that it's 3000.
 #
-# We're assuming the only other possibility is that we're running
-# under Sublime Text 2.
+# We're also assuming that if we're not running in ST3 then we're running
+# in ST2.
 #
-st = 3 if sublime.version() == '' or sublime.version()[0] == '3' else 2
+st = 3000 if sublime.version() == '' else int(sublime.version())
 
 
 # ------------------------------------------------------------------------------
@@ -47,7 +49,7 @@ class CursorRuler(object):
       # the same in the case of a selection region being made the "b" property
       # more accurately represents where the cursor is at.
       #
-      # A cursor's `xpos` is its smart horizontal layout position.
+      # A cursor's `xpos` is its target horizontal layout position.
       # It is the position where the cursor would be at if it weren't affected
       # by lack of virtual whitespace, word-wrapping, or varying font widths.
       #
@@ -67,7 +69,7 @@ class CursorRuler(object):
       # It only matters when we're not at the end of the file.
 
       next_x  = view.text_to_layout(cursor.b + 1)[0]
-      xpos    = cursor.xpos if st == 3 else cursor.xpos()
+      xpos    = cursor.xpos if st >= 3000 else cursor.xpos()
 
       if xpos >= 0 and xpos < cur_x and cur_x > next_x and cursor.b < view_size:
         if not cls.indent_subsequent_lines:
@@ -135,9 +137,9 @@ class CursorRuler(object):
     cls.sublime_settings  = sublime.load_settings('Preferences.sublime-settings')
     cls.settings          = sublime.load_settings('CursorRuler.sublime-settings')
 
-    # In Sublime Text 3 the `add_on_change()` method is not yet implemented
-    # as of build 3011 and older.
-    if st != 3:
+    # In Sublime Text 3 the `add_on_change()` method was not implemented
+    # until build 3013.
+    if st < 3000 or st >= 3013:
       cls.sublime_settings.add_on_change('cursorruler-reload', cls.__setup)
       cls.settings.add_on_change('reload', cls.__setup)
 
@@ -202,7 +204,7 @@ class CursorRulerListener(sublime_plugin.EventListener):
   def on_load(self, view):
     # In ST2 the initialization phase needs to happen here for static rulers
     # to not disappear.
-    if st == 2:
+    if st < 3000:
       CursorRuler.init()
 
     if CursorRuler.is_enabled(view):
@@ -235,5 +237,5 @@ def plugin_loaded():
 # In ST2 this prevents an error from happening if this file (CursorRuler.py)
 # is saved.  This also prevents a missing attribute error from occurring
 # at startup.
-if st == 2:
+if st < 3000:
   CursorRuler.init()

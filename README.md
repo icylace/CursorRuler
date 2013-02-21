@@ -213,7 +213,7 @@ Notes
 
 - Using the column-like highlighting style while using a variable-width font looks strange.  Perhaps this should considered a bug?
 
-- As of ST3 build 3011 the `add_on_change()` method is still not yet implemented and therefore not used.  In ST2 it is available and used.
+- In ST3 build 3012 and older the `add_on_change()` method was not implemented and therefore CursorRuler will not use it.  In ST2 and also ST3 build 3013 and later it is available and CursorRuler will use it.
 
 - After you save changes to your user settings or your CursorRuler settings the changes take effect once the cursor state changes.
 
@@ -246,8 +246,10 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 Release Notes
 -------------
 
-2013-02-21
+2013-02-21:  Version **1.1.1**
 
+- I decided to start using [Semantic Versioning](http://semver.org) and have updated the readme and comments in the code where appropriate in order to reflect this.
+- Changed the way the Sublime Text version number is used in order to account for the build number.  This was done to take advantage of ST3 build 3013 now implementing the `add_on_change()` method.
 - Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available through Package Control!
 
 
@@ -267,13 +269,13 @@ Release Notes
 - Updated readme:  Updated the "The Packages Folder for Sublime Text 2 and Sublime Text 3" section with details about another way of getting the packages folder path.
 
 
-2013-02-10
+2013-02-10:  Version **1.0.1**
 
 - Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
 - Included settings file improvements by [adzenith](https://github.com/adzenith).
-- Updated radme:  Made a note about the slightly quirky behavior after settings get updated.
+- Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
 
-2013-02-09
+2013-02-09:  Version **1.0.0**
 
 -  First public release.
 

@@ -248,7 +248,7 @@ Release Notes
 
 2013-02-21
 
-- Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available in Package Control!
+- Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available through Package Control!
 
 
 2013-02-20

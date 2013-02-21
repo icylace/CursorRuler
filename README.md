@@ -246,7 +246,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 Release Notes
 -------------
 
-2013-02-21:  Version **1.1.1**
+2013-02-21:  Version **1.1.0**
 
 - I decided to start using [Semantic Versioning](http://semver.org) and have updated the readme and comments in the code where appropriate in order to reflect this.
 - Changed the way the Sublime Text version number is used in order to account for the build number.  This was done to take advantage of ST3 build 3013 now implementing the `add_on_change()` method.

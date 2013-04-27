@@ -172,9 +172,9 @@ Also, you may instead consider making your cursor rulers have a thicker style th
 
 ### Ruler Colors
 
-Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  It's also the same way for line numbers in the gutter.  Rulers and gutter text get their colors from your color scheme's foreground and background settings.  For rulers the background setting overrides the foreground setting.
+Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  Rulers get their colors from your color scheme's foreground and background settings.  The background setting overrides the foreground setting.
 
-Despite the current lack of ability to directly set colors for each of these things (as of ST2 build 2219 and ST3 build 3011) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
+Despite the current lack of ability to directly set colors for rulers (as of ST2 build 2219 and ST3 build 3030) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
 
 Basically, you need to change the overall default foreground color and/or background color of your color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
 
@@ -195,10 +195,17 @@ then we would add
       </dict>
     </dict>
 
-in order for us to defne our actual default foreground color.
+in order for us to define our actual default foreground color.
 
-I'm not aware of a way to have different foreground colors between rulers and gutter text.  This may be a forgivably minor limitation but it would be nice if it were possible.
+As a sidenote, gutter text foreground color can be defined directly:
 
+    <key>gutterForeground</key>
+    <string>#0000FF77</string>
+
+as well as the gutter text background color:
+
+    <key>gutter</key>
+    <string>#0000FF33</string>
 
 
 
@@ -246,10 +253,17 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 Release Notes
 -------------
 
+2013-04-27
+
+- Updated readme:  Fixed a typo.  Also added info for changing gutter text foreground color ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904)).
+
+
 2013-02-21:  Version **1.1.0**
 
-- I decided to start using [Semantic Versioning](http://semver.org) and have updated the readme and comments in the code where appropriate in order to reflect this.
+- I decided to start using [Semantic Versioning](http://semver.org/) and have updated the readme and comments in the code where appropriate in order to reflect this.
+
 - Changed the way the Sublime Text version number is used in order to account for the build number.  This was done to take advantage of ST3 build 3013 now implementing the `add_on_change()` method.
+
 - Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available through Package Control!
 
 
@@ -266,14 +280,18 @@ Release Notes
 2013-02-12
 
 - Updated readme:  Updated the "Ruler Colors" section with more details about setting ruler colors.
+
 - Updated readme:  Updated the "The Packages Folder for Sublime Text 2 and Sublime Text 3" section with details about another way of getting the packages folder path.
 
 
 2013-02-10:  Version **1.0.1**
 
 - Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
+
 - Included settings file improvements by [adzenith](https://github.com/adzenith).
+
 - Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
+
 
 2013-02-09:  Version **1.0.0**
 

@@ -255,7 +255,7 @@ Release Notes
 
 2013-04-27
 
-- Updated readme:  Fixed a typo.  Also added info for changing gutter text foreground color ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904)).
+- Updated readme:  Fixed a typo.  Added info for changing gutter text foreground color ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904)).  Also found out how to change gutter text background color and added that info too.
 
 
 2013-02-21:  Version **1.1.0**

@@ -287,9 +287,7 @@ Release Notes
 2013-02-10:  Version **1.0.1**
 
 - Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
-
 - Included settings file improvements by [adzenith](https://github.com/adzenith).
-
 - Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
 
 

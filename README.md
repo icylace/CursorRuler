@@ -238,7 +238,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ### Known Minor Bugs
 
-- If CursorRuler is added to the "ignored_packages" list in the user preferences then upon saving the preferences any open files that have cursor rulers on them will retain those rulers as permanent static rulers.  The only way to remove those static rulers would be to either no longer ignore the plugin or reopen the files that are affected.
+- If CursorRuler is added to the `ignored_packages` list in the user preferences then upon saving the preferences any open files that have cursor rulers on them will retain those rulers as permanent static rulers.  The only way to remove those static rulers would be to either no longer ignore the plugin or reopen the files that are affected.
 
 - Doesn't work on previewed files.  Perhaps this is beneficial as an indicator for when you're looking at previewed files?
 

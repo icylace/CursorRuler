@@ -20,8 +20,7 @@ import sublime_plugin
 # startup.  If we're unable to get the version build number we make the
 # assumption that it's 3000.
 #
-# We're also assuming that if we're not running in ST3 then we're running
-# in ST2.
+# We're also assuming that if we're not in ST3 then we're in ST2.
 #
 st = 3000 if sublime.version() == '' else int(sublime.version())
 

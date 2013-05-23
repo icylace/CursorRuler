@@ -8,6 +8,8 @@ See README.md for details.
 
 '''
 
+import os.path
+
 import sublime
 import sublime_plugin
 
@@ -105,8 +107,8 @@ class CursorRuler(object):
 
     @classmethod
     def __setup(cls):
-        cls.rulers                  = cls.sublime_settings.get('rulers', [])
-        cls.indent_subsequent_lines = bool(cls.sublime_settings.get('indent_subsequent_lines', True))
+        cls.rulers                  = cls.editor_settings.get('rulers', [])
+        cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
         cls.cursor_rulers           = cls.settings.get('cursor_rulers',  [-0.1, 0.2])
         cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
@@ -135,13 +137,15 @@ class CursorRuler(object):
 
     @classmethod
     def init(cls):
-        cls.sublime_settings  = sublime.load_settings('Preferences.sublime-settings')
-        cls.settings          = sublime.load_settings('CursorRuler.sublime-settings')
+        plugin_name = os.path.basename(__file__)[:-3]
+
+        cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
+        cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')
 
         # In Sublime Text 3 the `add_on_change()` method
         # was not implemented until build 3013.
         if st < 3000 or st >= 3013:
-            cls.sublime_settings.add_on_change('cursorruler-reload', cls.__setup)
+            cls.editor_settings.add_on_change(plugin_name.lower() + '-reload', cls.__setup)
             cls.settings.add_on_change('reload', cls.__setup)
 
         cls.__setup()

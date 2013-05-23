@@ -44,14 +44,16 @@ class CursorRuler(object):
             #
             # To do this we need to know a few things:
             #
-            # The cursor position is usually represented technically as an empty
-            # region.  While in this case the region's `a` and `b` properties are
-            # the same in the case of a selection region being made the "b" property
-            # more accurately represents where the cursor is at.
+            # The cursor position is usually represented technically as an
+            # empty region.  While in this case the region's `a` and `b`
+            # properties are the same in the case of a selection region
+            # being made the "b" property more accurately represents where
+            # the cursor is at.
             #
             # A cursor's `xpos` is its target horizontal layout position.
-            # It is the position where the cursor would be at if it weren't affected
-            # by lack of virtual whitespace, word-wrapping, or varying font widths.
+            # It is the position where the cursor would be at if it weren't
+            # affected by lack of virtual whitespace, word-wrapping, or
+            # varying font widths.
             #
             # If it's non-negative then it represents the position the cursor
             # was just at in the previous line.  It also indicates that the
@@ -82,8 +84,8 @@ class CursorRuler(object):
 
                         # We keep going if the line is not entirely whitespace.
                         if stripped_line_length > 0:
-                            # We find out where the first non-whitespace character
-                            # of the line is and we use its position.
+                            # We find out where the first non-whitespace
+                            # character of the line is and we use its position.
                             cur_row         = view.rowcol(cursor.b)[0]
                             beginning_pos   = line_length - stripped_line_length
                             beginning_point = view.text_point(cur_row, beginning_pos)
@@ -92,7 +94,8 @@ class CursorRuler(object):
             # Get the cursor position in terms of columns.
             cur_col = cur_x / em_width
 
-            # Setup the current dynamic rulers to be included with the static rulers.
+            # Setup the current dynamic rulers to be included
+            # with the static rulers.
             dynamic_rulers += [cur_col + offset for offset in cls.cursor_rulers]
 
         # Update the active rulers with the dynamic rulers.
@@ -137,8 +140,8 @@ class CursorRuler(object):
         cls.sublime_settings  = sublime.load_settings('Preferences.sublime-settings')
         cls.settings          = sublime.load_settings('CursorRuler.sublime-settings')
 
-        # In Sublime Text 3 the `add_on_change()` method was not implemented
-        # until build 3013.
+        # In Sublime Text 3 the `add_on_change()` method
+        # was not implemented until build 3013.
         if st < 3000 or st >= 3013:
             cls.sublime_settings.add_on_change('cursorruler-reload', cls.__setup)
             cls.settings.add_on_change('reload', cls.__setup)

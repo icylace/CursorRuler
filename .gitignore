@@ -1,5 +1,7 @@
 # http://www.sublimetext.com/forum/viewtopic.php?f=6&t=1934#p8925
+# https://github.com/SublimeText/AAAPackageDev/blob/master/.gitignore
 
 *.pyc
 *.cache
 *.sublime-project
+*.sublime-workspace

@@ -16,10 +16,10 @@ import sublime_plugin
 #
 # It's important for us to know if we're running in ST3 or ST2.
 #
-# In Sublime Text 3 build 3010 and older the API is unavailable during
-# program startup.  As of build 3011 `sublime.version()` is available during
-# startup.  If we're unable to get the version build number we make the
-# assumption that it's 3000.
+# Build 3010 and older of the Sublime Text 3 builds do not have the API
+# available during program startup.  As of build 3011 `sublime.version()`
+# is available during startup.  If we're unable to get the version build
+# number we make the assumption that it's 3000.
 #
 # We're also assuming that if we're not in ST3 then we're in ST2.
 #

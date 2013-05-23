@@ -243,7 +243,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 - Doesn't work on previewed files.  Perhaps this is beneficial as an indicator for when you're looking at previewed files?
 
 
-### Similar Plugins
+### Related Plugins
 
 [Cross](https://github.com/chancedai/sublime-cross) - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
 

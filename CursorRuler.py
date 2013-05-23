@@ -11,7 +11,6 @@ See README.md for details.
 import sublime
 import sublime_plugin
 
-
 #
 # It's important for us to know if we're running in ST3 or ST2.
 #
@@ -35,7 +34,6 @@ class CursorRuler(object):
         em_width        = active_view.em_width()
         view_size       = active_view.size()
         dynamic_rulers  = []
-
 
         # Setup rulers for each cursor.
         for cursor in cursors:

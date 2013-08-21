@@ -98,25 +98,33 @@ To use custom settings first create a file called `CursorRuler.sublime-settings`
 A list of column positions relative to the cursor position where dynamic cursor rulers appear.  They can be any decimal number.  0 represents the current cursor position so
 
 ```JSON
-"cursor_rulers": [0]
+{
+  "cursor_rulers": [0]
+}
 ```
 
 means display a single dynamic ruler exactly where the cursor is.  You could experiment with something like
 
 ```JSON
-"cursor_rulers": [-0.1, 0, 0.2]
+{
+  "cursor_rulers": [-0.1, 0, 0.2]
+}
 ```
 
 if you wanted something thicker.  The default (what I personally use) which is
 
 ```JSON
-"cursor_rulers": [-0.1, 0.2]
+{
+  "cursor_rulers": [-0.1, 0.2]
+}
 ```
 
 tries to be thick without being too distracting.  You could also try something like
 
 ```JSON
-"cursor_rulers": [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+{
+  "cursor_rulers": [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9]
+}
 ```
 
 if you wanted to simulate **column highlighting!**  It's not perfect and can look a little odd at larger font sizes but it's the next-best thing to the real thing.
@@ -126,7 +134,9 @@ Now for some crazy stuff.  The following examples illustrate the silliness that'
 It's possible there might be some people who would consider this first example useful:
 
 ```JSON
-"cursor_rulers": [-4, -0.1, 0, 0.2, 4]
+{
+  "cursor_rulers": [-4, -0.1, 0, 0.2, 4]
+}
 ```
 
 The potential usefulness comes from ability to know at a glance what is cleanly indented and outdented relative to the cursor.  In this case the indent spacing is assumed to be 4.  The disadvantage here is that it looks visually cluttered (at least to me).
@@ -134,7 +144,9 @@ The potential usefulness comes from ability to know at a glance what is cleanly 
 This next example illustrates a much more experimental "gradient" highlighting style:
 
 ```JSON
-"cursor_rulers": [-2.4, -1.7, -1.2, -0.8, -0.4, -0.2, -0.1]
+{
+  "cursor_rulers": [-2.4, -1.7, -1.2, -0.8, -0.4, -0.2, -0.1]
+}
 ```
 
 It shows several rulers trailing to the left of your cursor.  It may ultimately be too showy to be practical but it does have its own feel once you get used to it.
@@ -142,7 +154,9 @@ It shows several rulers trailing to the left of your cursor.  It may ultimately 
 This final example is yet another experimental highlighting style.  This one doesn't highlight the cursor position directly but instead creates a "tunnel" which is centered around the cursor:
 
 ```JSON
-"cursor_rulers": [-4.7, -4, -3.4, -3.1, -3, 3, 3.2, 3.5, 4.1, 4.7]
+{
+  "cursor_rulers": [-4.7, -4, -3.4, -3.1, -3, 3, 3.2, 3.5, 4.1, 4.7]
+}
 ```
 
 As you can see, a variety of sometimes useful, sometimes strange highlighting possibilities are out there.
@@ -179,13 +193,17 @@ Tips
 You may want to distinguish the cursor rulers from any normal static rulers you may have set.  Unfortunately, I'm not aware of a way to set different visual styles for different rulers.  However, one option to workaround this is to set multiple rulers around where a single ruler would normally be.  For example, if your rulers setting in your user preferences was set like this:
 
 ```JSON
-"rulers": [80, 150]
+{
+  "rulers": [80, 150]
+}
 ```
 
 then you could do this:
 
 ```JSON
-"rulers": [80, 80.25, 150, 150.25]
+{
+  "rulers": [80, 80.25, 150, 150.25]
+}
 ```
 
 to make your normal rulers "thicker" and therefore distinguishable from the cursor rulers.

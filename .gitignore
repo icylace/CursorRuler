@@ -1,5 +1,30 @@
-# http://www.sublimetext.com/forum/viewtopic.php?f=6&t=1934#p8925
-# https://github.com/SublimeText/AAAPackageDev/blob/master/.gitignore
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.orig
+*.log
+*.rej
+*.swo
+*.swp
+*.vi
+*~
+*.sass-cache
+
+# OS or Editor folders
+.DS_Store
+.cache
+.project
+.settings
+.tmproj
+nbproject
+Thumbs.db
+
+
+# ------------------------------------------------------------------------------
+#  http://www.sublimetext.com/forum/viewtopic.php?f=6&t=1934#p8925
+#  https://github.com/github/gitignore/blob/master/Global/SublimeText.gitignore
+# ------------------------------------------------------------------------------
+
 
 *.pyc
 *.cache

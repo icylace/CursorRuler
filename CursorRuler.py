@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.0
+CursorRuler 1.1.1pre
 
 A plugin for the Sublime Text editor which marks the current cursor position
 using dynamic rulers.
@@ -32,10 +32,10 @@ st = 3000 if sublime.version() == '' else int(sublime.version())
 class CursorRuler(object):
     @classmethod
     def __draw_on_view(cls, view, active_view):
-        cursors         = active_view.sel()
-        em_width        = active_view.em_width()
-        view_size       = active_view.size()
-        dynamic_rulers  = []
+        cursors        = active_view.sel()
+        em_width       = active_view.em_width()
+        view_size      = active_view.size()
+        dynamic_rulers = []
 
         # Setup rulers for each cursor.
         for cursor in cursors:
@@ -70,8 +70,8 @@ class CursorRuler(object):
             # We then take into account the strangeness of word-wrapping.
             # It only matters when we're not at the end of the file.
 
-            next_x  = view.text_to_layout(cursor.b + 1)[0]
-            xpos    = cursor.xpos if st >= 3000 else cursor.xpos()
+            next_x = view.text_to_layout(cursor.b + 1)[0]
+            xpos   = cursor.xpos if st >= 3000 else cursor.xpos()
 
             if xpos >= 0 and xpos < cur_x and cur_x > next_x and cursor.b < view_size:
                 if not cls.indent_subsequent_lines:
@@ -109,7 +109,7 @@ class CursorRuler(object):
     def __setup(cls):
         cls.rulers                  = cls.editor_settings.get('rulers', [])
         cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
-        cls.cursor_rulers           = cls.settings.get('cursor_rulers',  [-0.1, 0.2])
+        cls.cursor_rulers           = cls.settings.get('cursor_rulers', [-0.1, 0.2])
         cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
 
@@ -138,6 +138,8 @@ class CursorRuler(object):
     @classmethod
     def init(cls):
         plugin_name = os.path.basename(__file__)[:-3]
+
+        print('lajhskd  ' + plugin_name)
 
         cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
         cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')
@@ -244,4 +246,4 @@ def plugin_loaded():
 # is saved.  This also prevents a missing attribute error from occurring
 # at startup.
 if st < 3000:
-    CursorRuler.init()
+    plugin_loaded()

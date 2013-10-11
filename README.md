@@ -1,13 +1,11 @@
-CursorRuler
-===========
+# CursorRuler
 
 A plugin for the Sublime Text editor which marks the current cursor position using dynamic rulers.
 
 
 
 
-Why Is This Useful?
--------------------
+## Why Is This Useful?
 
 1.  It can be used for alignment purposes in places where Sublime Text's built-in indent guides aren't able to show up.  For example, inside multiple rows of single-line comments or multiple assignment statements across different code blocks.
 
@@ -16,14 +14,13 @@ Why Is This Useful?
 
 
 
-Features
---------
+## Features
 
 - Use multiple dynamic rulers to create different highlighting styles including a "thickening" effect which can be used to simulate column highlighting.
 
 - Option to synchronize rulers when using multiple views of the same file.
 
-- Supports muliple cursors.
+- Supports multiple cursors.
 
 - Toggle activation through the command palette.
 
@@ -32,21 +29,20 @@ Features
 
 
 
-Installation
-------------
+## Installation
 
 ### With Package Control
 
 The easiest way to install CursorRuler is through Package Control which is available here:
 
-    http://wbond.net/sublime_packages/package_control
+	http://wbond.net/sublime_packages/package_control
 
 After installing Package Control, restart Sublime Text and bring up the Command Palette (`Command+Shift+P` on OS X and `Control+Shift+P` on Linux/Windows).  Select `Package Control: Install Package`, wait while Package Control fetches the latest package list, then select CursorRuler when the list appears.
 
 
 ### Without Git
 
-Download the latest source from [GitHub](https://github.com/icylace/CursorRuler) and then copy the CursorRuler folder to your Sublime Text's packages folder.
+Download the latest source from [GitHub][CursorRuler repo] and then copy the CursorRuler folder to your Sublime Text's packages folder.
 
 
 ### With Git
@@ -61,24 +57,23 @@ git clone https://github.com/icylace/CursorRuler.git
 
 - OS X:
 
-        ~/Library/Application Support/Sublime Text 2/Packages
-        ~/Library/Application Support/Sublime Text 3/Packages
+		~/Library/Application Support/Sublime Text 2/Packages
+		~/Library/Application Support/Sublime Text 3/Packages
 
 - Linux:
 
-        ~/.Sublime Text 2/Packages
-        ~/.Sublime Text 3/Packages
+		~/.Sublime Text 2/Packages
+		~/.Sublime Text 3/Packages
 
 - Windows:
 
-        %APPDATA%\Sublime Text 2\Packages
-        %APPDATA%\Sublime Text 3\Packages
+		%APPDATA%\Sublime Text 2\Packages
+		%APPDATA%\Sublime Text 3\Packages
 
-Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing ``Ctrl+` `` (backtick) and then typing `sublime.packages_path()` in it's input field and then pressing enter.
+Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing `Ctrl+``` (backtick) and then typing `sublime.packages_path()` in it's input field and then pressing enter.
 
 
-Settings
---------
+## Settings
 
 The following settings are available.  They are shown here with their default values.
 
@@ -174,8 +169,7 @@ Multiple views of the same file will show cursor rulers that move together in sy
 
 
 
-Usage
------
+## Usage
 
 Having the plugin enabled is all that's required to start seeing your cursors have rulers track them.
 
@@ -187,8 +181,7 @@ Having the plugin enabled is all that's required to start seeing your cursors ha
 
 
 
-Tips
-----
+## Tips
 
 You may want to distinguish the cursor rulers from any normal static rulers you may have set.  Unfortunately, I'm not aware of a way to set different visual styles for different rulers.  However, one option to workaround this is to set multiple rulers around where a single ruler would normally be.  For example, if your rulers setting in your user preferences was set like this:
 
@@ -215,7 +208,7 @@ Also, you may instead consider making your cursor rulers have a thicker style th
 
 Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  Rulers get their colors from your color scheme's foreground and background settings.  The background setting overrides the foreground setting.
 
-Despite the current lack of ability to directly set colors for rulers (as of ST2 build 2219 and ST3 build 3030) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
+Despite the current lack of ability to directly set colors for rulers (as of ST2 build 2219 and ST3 build 3030) there's thankfully a workaround for it [described here][ruler coloring].
 
 Basically, you need to change the overall default foreground color and/or background color of your color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
 
@@ -258,8 +251,7 @@ as well as the gutter text background color:
 
 
 
-Notes
------
+## Notes
 
 - In ST2 there is a major bug which is described below.
 
@@ -289,18 +281,22 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 - If CursorRuler is added to the `ignored_packages` list in the user preferences then upon saving the preferences any open files that have cursor rulers on them will retain those rulers as permanent static rulers.  The only way to remove those static rulers would be to either no longer ignore the plugin or reopen the files that are affected.
 
-- Doesn't work on previewed files.  Perhaps this is beneficial as an indicator for when you're looking at previewed files?
+- On ST2 it doesn't work on previewed files.  Perhaps this is beneficial as an indicator for when you're looking at previewed files?
 
 
 ### Related Plugins
 
-[Cross](https://github.com/chancedai/sublime-cross) - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
+[Cross][] - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
 
 
 
 
-Release Notes
--------------
+## Release Notes
+
+next release
+
+- Updated readme:  Noted that one of the minor bugs is ST2-only.
+
 
 2013-08-21
 
@@ -309,12 +305,12 @@ Release Notes
 
 2013-04-27
 
-- Updated readme:  Fixed a typo.  Added info for changing gutter text foreground color ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904)).  Also found out how to change gutter text background color and added that info too.
+- Updated readme:  Fixed a typo.  Added info for changing gutter text foreground color ([source][gutter coloring]).  Also found out how to change gutter text background color and added that info too.
 
 
 2013-02-21:  Version **1.1.0**
 
-- I decided to start using [Semantic Versioning](http://semver.org/) and have updated the readme and comments in the code where appropriate in order to reflect this.
+- I decided to start using [Semantic Versioning][] and have updated the readme and comments in the code where appropriate in order to reflect this.
 - Changed the way the Sublime Text version number is used in order to account for the build number.  This was done to take advantage of ST3 build 3013 now implementing the `add_on_change()` method.
 - Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available through Package Control!
 
@@ -337,8 +333,8 @@ Release Notes
 
 2013-02-10:  Version **1.0.1**
 
-- Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
-- Included settings file improvements by [adzenith](https://github.com/adzenith).
+- Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith][]!
+- Included settings file improvements by [adzenith][].
 - Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
 
 
@@ -349,12 +345,22 @@ Release Notes
 
 
 
-License
--------
+## License
 
-[MIT](http://opensource.org/licenses/MIT)
+[MIT][]
 
 
 
 
 Have fun !
+
+
+
+
+[CursorRuler repo]:    https://github.com/icylace/CursorRuler
+[ruler coloring]:      http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
+[Cross]:               https://github.com/chancedai/sublime-cross
+[gutter coloring]:     http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904
+[Semantic Versioning]: http://semver.org/
+[adzenith]:            https://github.com/adzenith
+[MIT]:                 http://opensource.org/licenses/MIT

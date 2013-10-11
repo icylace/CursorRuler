@@ -2,7 +2,7 @@
   // See README.md for details.
 
   // The default: thick, not too distracting.
-  "cursor_rulers":  [-0.1, 0.2],
+  "cursor_rulers": [-0.1, 0.2],
 
   // Single ruler at cursor:
   // "cursor_rulers":  [0],
@@ -22,6 +22,10 @@
   // Cursor "tunnel":
   // "cursor_rulers":  [-4.7, -4, -3.4, -3.1, -3, 3, 3.2, 3.5, 4.1, 4.7],
 
-  "enabled":        true,
-  "synchronized":   true
+  "enabled":      true,
+  "synchronized": true
+
+  // Coming soon...
+  // Active ruler types.
+  // "ruler_types": ["cursor", "sticky", "static", "line"]
 }

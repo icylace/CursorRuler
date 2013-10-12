@@ -107,9 +107,9 @@ class CursorRuler(object):
 
     @classmethod
     def __setup(cls):
-        cls.rulers                  = cls.editor_settings.get('rulers', [])
+        cls.rulers                  =      cls.editor_settings.get('rulers', [])
         cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
-        cls.cursor_rulers           = cls.settings.get('cursor_rulers', [-0.1, 0.2])
+        cls.cursor_rulers           =      cls.settings.get('cursor_rulers', [-0.1, 0.2])
         cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
 
@@ -138,8 +138,6 @@ class CursorRuler(object):
     @classmethod
     def init(cls):
         plugin_name = os.path.basename(__file__)[:-3]
-
-        print('lajhskd  ' + plugin_name)
 
         cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
         cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')

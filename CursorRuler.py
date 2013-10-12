@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.1
+CursorRuler 1.1.2
 
 A plugin for the Sublime Text editor which marks the current cursor position
 using dynamic rulers.
@@ -7,8 +7,6 @@ using dynamic rulers.
 See README.md for details.
 
 '''
-
-import os.path
 
 import sublime
 import sublime_plugin
@@ -137,7 +135,7 @@ class CursorRuler(object):
 
     @classmethod
     def init(cls):
-        plugin_name = os.path.basename(__file__)[:-3]
+        plugin_name = 'CursorRuler'
 
         cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
         cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')

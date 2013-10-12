@@ -302,6 +302,12 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ## Release Notes
 
+
+2013-10-12:  Version **1.1.2**
+
+- The original fix for #2 only worked for ST2.  Hopefully now things will work in ST3 also.
+
+
 2013-10-12:  Version **1.1.1**
 
 - General code improvement.

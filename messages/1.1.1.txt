@@ -1,0 +1,10 @@
+CursorRuler 1.1.1 Release Notes
+===============================
+
+- General code improvement.
+- The CursorRuler settings are now accessible from the "Preferences" -> "Package Settings" menu.
+- Fix for #2:  Custom user settings were not being picked up.
+- Fix for #3:  Default line wrapping was behaving unexpectedly.  Created a new command called `CursorRuler: Wrap Lines` for doing line wrapping properly.
+- Started using Package Control messages.
+- Updated readme:  Made more use of GitHub Flavored Markdown.
+- Updated readme:  Noted that one of the minor bugs is ST2-only.

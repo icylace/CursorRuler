@@ -1,0 +1,6 @@
+[
+  {
+    "keys":    ["super+alt+q"],
+    "command": "cursor_ruler_wrap_lines"
+  }
+]

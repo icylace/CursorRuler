@@ -1,0 +1,4 @@
+Thank you for installing CursorRuler !
+
+For details, please visit:
+https://github.com/icylace/CursorRuler

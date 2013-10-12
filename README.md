@@ -176,7 +176,9 @@ Having the plugin enabled is all that's required to start seeing your cursors ha
 
 ### Available Commands
 
-`CursorRuler: Toggle Enabled/Disabled` - Turns the plugin off if it's on and vice versa.
+`CursorRuler: Toggle Enabled/Disabled` - Turns CursorRuler off if it's on and vice versa.
+
+`CursorRuler: Wrap Lines` - Does proper line wrapping.  For details look [here][issue 3].
 
 
 
@@ -251,9 +253,12 @@ as well as the gutter text background color:
 
 
 
+
 ## Notes
 
 - In ST2 there is a major bug which is described below.
+
+- In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` command (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  For details look [here][issue 3].
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.
 
@@ -293,8 +298,14 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ## Release Notes
 
-next release
+2013-10-12:  Version **1.1.1**
 
+- General code improvement.
+- The CursorRuler settings are now accessible from the "Preferences" -> "Package Settings" menu.
+- Fix for #2:  Custom user settings were not being picked up.
+- Fix for #3:  Default line wrapping was behaving unexpectedly.  Created a new command called [CursorRuler: Wrap Lines][wrap lines] for doing line wrapping properly.
+- Started using Package Control messages.
+- Updated readme:  Made more use of GitHub Flavored Markdown.
 - Updated readme:  Noted that one of the minor bugs is ST2-only.
 
 
@@ -334,7 +345,7 @@ next release
 2013-02-10:  Version **1.0.1**
 
 - Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith][]!
-- Included settings file improvements by [adzenith][].
+- Included settings file improvements by [adzenith][].  Closes #1.
 - Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
 
 
@@ -357,9 +368,12 @@ Have fun !
 
 
 
+[issue 3]:             https://github.com/icylace/CursorRuler/issues/3
 [CursorRuler repo]:    https://github.com/icylace/CursorRuler
 [ruler coloring]:      http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
+[wrapLines]:           http://www.sublimetext.com/docs/commands
 [Cross]:               https://github.com/chancedai/sublime-cross
+[wrap lines]:          https://github.com/icylace/CursorRuler#available-commands
 [gutter coloring]:     http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904
 [Semantic Versioning]: http://semver.org/
 [adzenith]:            https://github.com/adzenith

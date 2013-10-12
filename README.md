@@ -73,7 +73,25 @@ git clone https://github.com/icylace/CursorRuler.git
 Another way of getting the path of the packages folder is to open up Sublime Text's Python console by pressing `Ctrl+``` (backtick) and then typing `sublime.packages_path()` in it's input field and then pressing enter.
 
 
+
+
+## Usage
+
+Having the plugin enabled is all that's required to start seeing your cursors have rulers track them.
+
+
+### Available Commands
+
+`CursorRuler: Toggle Enabled/Disabled` - Turns CursorRuler off if it's on and vice versa.
+
+`CursorRuler: Wrap Lines` - Does proper line wrapping.  For details look [here][issue 3].
+
+
+
+
 ## Settings
+
+The default settings file may be accessed through the menu by going to `Preferences` -> `Package Settings` -> `CursorRuler` -> `Settings – Default`.  The `Settings – User` option may be used to either open up the custom user-specific settings file or to create it if it doesn't exist yet.
 
 The following settings are available.  They are shown here with their default values.
 
@@ -169,20 +187,6 @@ Multiple views of the same file will show cursor rulers that move together in sy
 
 
 
-## Usage
-
-Having the plugin enabled is all that's required to start seeing your cursors have rulers track them.
-
-
-### Available Commands
-
-`CursorRuler: Toggle Enabled/Disabled` - Turns CursorRuler off if it's on and vice versa.
-
-`CursorRuler: Wrap Lines` - Does proper line wrapping.  For details look [here][issue 3].
-
-
-
-
 ## Tips
 
 You may want to distinguish the cursor rulers from any normal static rulers you may have set.  Unfortunately, I'm not aware of a way to set different visual styles for different rulers.  However, one option to workaround this is to set multiple rulers around where a single ruler would normally be.  For example, if your rulers setting in your user preferences was set like this:
@@ -258,7 +262,7 @@ as well as the gutter text background color:
 
 - In ST2 there is a major bug which is described below.
 
-- In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` command (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  For details look [here][issue 3].
+- In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` menu item (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to instead use the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  However, using the `Wrap Paragraph at Ruler` menu item without the shortcut key still uses the normal wrapping command.  It seems there isn't a way to override ST's default menu items in that sort of way.  For details look [here][issue 3].
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.
 
@@ -307,6 +311,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 - Started using Package Control messages.
 - Updated readme:  Made more use of GitHub Flavored Markdown.
 - Updated readme:  Noted that one of the minor bugs is ST2-only.
+- Updated readme:  Some minor rearrangement.  Also described how to access the settings through the menu.  Noted some stuff about the `Wrap Paragraph at Ruler` menu item.
 
 
 2013-08-21

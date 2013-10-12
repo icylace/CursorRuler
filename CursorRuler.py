@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.1pre
+CursorRuler 1.1.1
 
 A plugin for the Sublime Text editor which marks the current cursor position
 using dynamic rulers.

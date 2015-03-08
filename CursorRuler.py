@@ -217,6 +217,7 @@ class CursorRulerListener(sublime_plugin.EventListener):
     def on_activated(self, view):
         if not view.is_loading() and CursorRuler.is_enabled(view):
             CursorRuler.draw(view)
+            view.settings().add_on_change('command_mode', self.on_command_mode_change)
 
     def on_close(self, view):
         CursorRuler.reset(view)
@@ -246,7 +247,9 @@ class CursorRulerListener(sublime_plugin.EventListener):
 
             if CursorRuler.is_enabled(active_view):
                 CursorRuler.draw(active_view)
-
+    
+    def on_command_mode_change(self):
+        self.on_selection_modified(None)
 
 # ------------------------------------------------------------------------------
 

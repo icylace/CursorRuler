@@ -302,6 +302,10 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ## Release Notes
 
+2015-03-08:  Version **1.1.3**
+
+- Added [Vintageous][] support, thanks to [zjc0816][]!
+
 
 2013-10-12:  Version **1.1.2**
 
@@ -379,13 +383,15 @@ Have fun !
 
 
 
-[issue 3]:             https://github.com/icylace/CursorRuler/issues/3
-[CursorRuler repo]:    https://github.com/icylace/CursorRuler
-[ruler coloring]:      http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
-[wrapLines]:           http://www.sublimetext.com/docs/commands
-[Cross]:               https://github.com/chancedai/sublime-cross
-[wrap lines]:          https://github.com/icylace/CursorRuler#available-commands
-[gutter coloring]:     http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904
-[Semantic Versioning]: http://semver.org/
 [adzenith]:            https://github.com/adzenith
+[Cross]:               https://github.com/chancedai/sublime-cross
+[CursorRuler repo]:    https://github.com/icylace/CursorRuler
+[gutter coloring]:     http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904
+[issue 3]:             https://github.com/icylace/CursorRuler/issues/3
 [MIT]:                 http://opensource.org/licenses/MIT
+[ruler coloring]:      http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
+[Semantic Versioning]: http://semver.org/
+[Vintageous]:          http://guillermooo.bitbucket.org/Vintageous/
+[wrap lines]:          https://github.com/icylace/CursorRuler#available-commands
+[wrapLines]:           http://www.sublimetext.com/docs/commands
+[zjc0816]:             https://github.com/zjc0816

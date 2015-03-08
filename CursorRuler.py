@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.2
+CursorRuler 1.1.3
 
 A plugin for the Sublime Text editor which marks the current cursor position
 using dynamic rulers.
@@ -44,8 +44,8 @@ class CursorRuler(object):
             #
             # The cursor position is usually represented technically as an
             # empty region.  While in this case the region's `a` and `b`
-            # properties are the same in the case of a selection region
-            # being made the "b" property more accurately represents where
+            # properties are the same, in the case of a selection region
+            # being made the `b` property more accurately represents where
             # the cursor is at.
             #
             # A cursor's `xpos` is its target horizontal layout position.
@@ -207,7 +207,7 @@ class CursorRulerWrapLinesCommand(sublime_plugin.TextCommand):
             CursorRuler.draw(self.view)
             CursorRuler.enabled = True
         else:
-          self.view.run_command('wrap_lines')
+            self.view.run_command('wrap_lines')
 
 
 # ------------------------------------------------------------------------------
@@ -247,7 +247,7 @@ class CursorRulerListener(sublime_plugin.EventListener):
 
             if CursorRuler.is_enabled(active_view):
                 CursorRuler.draw(active_view)
-    
+
     def on_command_mode_change(self):
         self.on_selection_modified(None)
 

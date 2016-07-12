@@ -1,8 +1,8 @@
 '''
-CursorRuler 1.1.3
+CursorRuler 1.1.4
 
-A plugin for the Sublime Text editor which marks the current cursor position
-using dynamic rulers.
+A plugin for the Sublime Text editor which marks
+the current cursor position(s) using dynamic rulers.
 
 See README.md for details.
 
@@ -239,14 +239,21 @@ class CursorRulerListener(sublime_plugin.EventListener):
 
     def on_selection_modified(self, view):
         active_window = sublime.active_window()
-        if active_window is not None:
-            # The view parameter doesn't always match the active view
-            # the cursor is in.  This happens when there are multiple
-            # views of the same file.
-            active_view = active_window.active_view()
+        if active_window is None: return
 
-            if CursorRuler.is_enabled(active_view):
-                CursorRuler.draw(active_view)
+        # The view parameter doesn't always match the active view
+        # the cursor is in.  This happens when there are multiple
+        # views of the same file.
+        active_view = active_window.active_view()
+
+        # An empty window has no active views.  A newly-opened window
+        # created by the "New Window" command is empty.  When the
+        # `close_windows_when_empty` user setting is true a non-empty
+        # window can be left empty by closing its contained views.
+        if active_view is None: return
+
+        if CursorRuler.is_enabled(active_view):
+            CursorRuler.draw(active_view)
 
     def on_command_mode_change(self):
         self.on_selection_modified(None)

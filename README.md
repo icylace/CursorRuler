@@ -302,6 +302,11 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ## Release Notes
 
+2016-07-12:  Version **1.1.4**
+
+- Fix for [#9](https://github.com/icylace/CursorRuler/issues/9):  Empty windows were causing console errors.
+
+
 2015-03-08:  Version **1.1.3**
 
 - Added [Vintageous][] support, thanks to [zjc0816][]!
@@ -309,15 +314,15 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 2013-10-12:  Version **1.1.2**
 
-- The original fix for #2 only worked for ST2.  Hopefully now things will work in ST3 also.
+- The original fix for [#2](https://github.com/icylace/CursorRuler/issues/2) only worked for ST2.  Hopefully now things will work in ST3 also.
 
 
 2013-10-12:  Version **1.1.1**
 
 - General code improvement.
 - The CursorRuler settings are now accessible from the "Preferences" -> "Package Settings" menu.
-- Fix for #2:  Custom user settings were not being picked up.
-- Fix for #3:  Default line wrapping was behaving unexpectedly.  Created a new command called [CursorRuler: Wrap Lines][wrap lines] for doing line wrapping properly.
+- Fix for [#2](https://github.com/icylace/CursorRuler/issues/2):  Custom user settings were not being picked up.
+- Fix for [#3](https://github.com/icylace/CursorRuler/issues/3):  Default line wrapping was behaving unexpectedly.  Created a new command called [CursorRuler: Wrap Lines][wrap lines] for doing line wrapping properly.
 - Started using Package Control messages.
 - Updated readme:  Made more use of GitHub Flavored Markdown.
 - Updated readme:  Noted that one of the minor bugs is ST2-only.

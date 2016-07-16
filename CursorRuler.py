@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.4
+CursorRuler 1.1.5
 
 A plugin for the Sublime Text editor which marks
 the current cursor position(s) using dynamic rulers.
@@ -96,8 +96,17 @@ class CursorRuler(object):
             # with the static rulers.
             dynamic_rulers += [cur_col + offset for offset in cls.cursor_rulers]
 
-        # Update the active rulers with the dynamic rulers.
-        view.settings().set('rulers', cls.rulers + dynamic_rulers)
+        active_rulers = cls.rulers + dynamic_rulers
+
+        if st < 3000:
+            # For some reason, in ST2 we'll get into some sort of infinite
+            # recursion when trying to set the rulers.
+            # Note: ST2 uses Python 2 so we can use the convenient `cmp()`
+            # function which is unavailable in Python 3.
+            if cmp(active_rulers, view.settings().get('rulers')) != 0:
+                view.settings().set('rulers', active_rulers)
+        else:
+            view.settings().set('rulers', active_rulers)
 
 
     # ..........................................................................

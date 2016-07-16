@@ -42,7 +42,7 @@ After installing Package Control, restart Sublime Text and bring up the Command 
 
 ### Without Git
 
-Download the latest source from [GitHub][CursorRuler repo] and then copy the CursorRuler folder to your Sublime Text's packages folder.
+Download the latest source from [GitHub](https://github.com/icylace/CursorRuler) and then copy the CursorRuler folder to your Sublime Text's packages folder.
 
 
 ### With Git
@@ -84,7 +84,7 @@ Having the plugin enabled is all that's required to start seeing your cursors ha
 
 `CursorRuler: Toggle Enabled/Disabled` - Turns CursorRuler off if it's on and vice versa.
 
-`CursorRuler: Wrap Lines` - Does proper line wrapping.  For details look [here][issue 3].
+`CursorRuler: Wrap Lines` - Does proper line wrapping.  For details look [here](https://github.com/icylace/CursorRuler/issues/3).
 
 
 
@@ -214,7 +214,7 @@ Also, you may instead consider making your cursor rulers have a thicker style th
 
 Speaking of ruler visual style, there's apparently no way to set the color of rulers directly.  Rulers get their colors from your color scheme's foreground and background settings.  The background setting overrides the foreground setting.
 
-Despite the current lack of ability to directly set colors for rulers (as of ST2 build 2219 and ST3 build 3030) there's thankfully a workaround for it [described here][ruler coloring].
+Despite the current lack of ability to directly set colors for rulers (as of ST2 build 2219 and ST3 build 3030) there's thankfully a workaround for it [described here](http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903).
 
 Basically, you need to change the overall default foreground color and/or background color of your color scheme and then add a rule for the `text` and `source` scopes which is used to override the default colors.  For example, if we had a default foreground color which is meant to be used as the ruler and gutter foreground color:
 
@@ -262,7 +262,7 @@ as well as the gutter text background color:
 
 - In ST2 there is a major bug which is described below.
 
-- In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` menu item (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to instead use the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  However, using the `Wrap Paragraph at Ruler` menu item without the shortcut key still uses the normal wrapping command.  It seems there isn't a way to override ST's default menu items in that sort of way.  For details look [here][issue 3].
+- In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` menu item (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to instead use the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  However, using the `Wrap Paragraph at Ruler` menu item without the shortcut key still uses the normal wrapping command.  It seems there isn't a way to override ST's default menu items in that sort of way.  For details look [here](https://github.com/icylace/CursorRuler/issues/3).
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.
 
@@ -295,12 +295,17 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ### Related Plugins
 
-[Cross][] - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
+[Cross](https://github.com/chancedai/sublime-cross) - I just found out about this today (2013-02-20).  This predates CursorRuler by about a month.
 
 
 
 
 ## Release Notes
+
+2016-07-16:  Version **1.1.5**
+
+- Fix for [#6](https://github.com/icylace/CursorRuler/issues/6):  Crashes were happening in ST2.
+
 
 2016-07-12:  Version **1.1.4**
 
@@ -309,7 +314,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 2015-03-08:  Version **1.1.3**
 
-- Added [Vintageous][] support, thanks to [zjc0816][]!
+- Added [Vintageous](http://guillermooo.bitbucket.org/Vintageous/) support, thanks to [zjc0816](https://github.com/zjc0816)!
 
 
 2013-10-12:  Version **1.1.2**
@@ -322,7 +327,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 - General code improvement.
 - The CursorRuler settings are now accessible from the "Preferences" -> "Package Settings" menu.
 - Fix for [#2](https://github.com/icylace/CursorRuler/issues/2):  Custom user settings were not being picked up.
-- Fix for [#3](https://github.com/icylace/CursorRuler/issues/3):  Default line wrapping was behaving unexpectedly.  Created a new command called [CursorRuler: Wrap Lines][wrap lines] for doing line wrapping properly.
+- Fix for [#3](https://github.com/icylace/CursorRuler/issues/3):  Default line wrapping was behaving unexpectedly.  Created a new command called [CursorRuler: Wrap Lines](https://github.com/icylace/CursorRuler#available-commands) for doing line wrapping properly.
 - Started using Package Control messages.
 - Updated readme:  Made more use of GitHub Flavored Markdown.
 - Updated readme:  Noted that one of the minor bugs is ST2-only.
@@ -336,12 +341,12 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 2013-04-27
 
-- Updated readme:  Fixed a typo.  Added info for changing gutter text foreground color ([source][gutter coloring]).  Also found out how to change gutter text background color and added that info too.
+- Updated readme:  Fixed a typo.  Added info for changing gutter text foreground color ([source](http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904)).  Also found out how to change gutter text background color and added that info too.
 
 
 2013-02-21:  Version **1.1.0**
 
-- I decided to start using [Semantic Versioning][] and have updated the readme and comments in the code where appropriate in order to reflect this.
+- I decided to start using [Semantic Versioning](http://semver.org/) and have updated the readme and comments in the code where appropriate in order to reflect this.
 - Changed the way the Sublime Text version number is used in order to account for the build number.  This was done to take advantage of ST3 build 3013 now implementing the `add_on_change()` method.
 - Updated readme:  Removed the "(coming soon)" from the "With Package Control" section because CursorRuler is now available through Package Control!
 
@@ -364,8 +369,8 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 2013-02-10:  Version **1.0.1**
 
-- Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith][]!
-- Included settings file improvements by [adzenith][].  Closes #1.
+- Fixed a missing attribute error at startup.  Thanks for catching it, [adzenith](https://github.com/adzenith)!
+- Included settings file improvements by [adzenith](https://github.com/adzenith).  Closes #1.
 - Updated readme:  Made a note about the slightly quirky behavior after settings get updated.
 
 
@@ -378,25 +383,9 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 ## License
 
-[MIT][]
+[MIT](http://opensource.org/licenses/MIT)
 
 
 
 
 Have fun !
-
-
-
-
-[adzenith]:            https://github.com/adzenith
-[Cross]:               https://github.com/chancedai/sublime-cross
-[CursorRuler repo]:    https://github.com/icylace/CursorRuler
-[gutter coloring]:     http://www.sublimetext.com/forum/viewtopic.php?f=3&t=6161#p26904
-[issue 3]:             https://github.com/icylace/CursorRuler/issues/3
-[MIT]:                 http://opensource.org/licenses/MIT
-[ruler coloring]:      http://sublimetext.userecho.com/topic/93504-use-separate-colors-for-the-background-gutter-and-folder-tree/#comment_164903
-[Semantic Versioning]: http://semver.org/
-[Vintageous]:          http://guillermooo.bitbucket.org/Vintageous/
-[wrap lines]:          https://github.com/icylace/CursorRuler#available-commands
-[wrapLines]:           http://www.sublimetext.com/docs/commands
-[zjc0816]:             https://github.com/zjc0816

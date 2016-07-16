@@ -19,7 +19,6 @@
 nbproject
 Thumbs.db
 
-
 .Ulysses-Group.plist
 
 
@@ -27,7 +26,6 @@ Thumbs.db
 #  http://www.sublimetext.com/forum/viewtopic.php?f=6&t=1934#p8925
 #  https://github.com/github/gitignore/blob/master/Global/SublimeText.gitignore
 # ------------------------------------------------------------------------------
-
 
 *.pyc
 *.cache

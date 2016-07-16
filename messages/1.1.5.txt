@@ -1,0 +1,4 @@
+CursorRuler 1.1.5 Release Notes
+===============================
+
+- Fix for #6:  Crashes were happening in ST2.

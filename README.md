@@ -33,9 +33,7 @@ A plugin for the Sublime Text editor which marks the current cursor position(s) 
 
 ### With Package Control
 
-The easiest way to install CursorRuler is through Package Control which is available here:
-
-	http://wbond.net/sublime_packages/package_control
+The easiest way to install CursorRuler is through [Package Control](https://packagecontrol.io/installation).
 
 After installing Package Control, restart Sublime Text and bring up the Command Palette (`Command+Shift+P` on OS X and `Control+Shift+P` on Linux/Windows).  Select `Package Control: Install Package`, wait while Package Control fetches the latest package list, then select CursorRuler when the list appears.
 

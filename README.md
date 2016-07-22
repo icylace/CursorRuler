@@ -304,7 +304,7 @@ ST3 seems to completely avoid this problematic scenario.  I suppose it's due to 
 
 2016-07-16:  Version **1.1.5**
 
-- Fix for [#6](https://github.com/icylace/CursorRuler/issues/6):  Crashes were happening in ST2.
+- Fix for [#6](https://github.com/icylace/CursorRuler/issues/6) and [#11](https://github.com/icylace/CursorRuler/issues/11):  Crashes were happening in ST2.
 
 
 2016-07-12:  Version **1.1.4**

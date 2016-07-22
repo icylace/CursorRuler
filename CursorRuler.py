@@ -99,10 +99,15 @@ class CursorRuler(object):
         active_rulers = cls.rulers + dynamic_rulers
 
         if st < 3000:
-            # For some reason, in ST2 we'll get into some sort of infinite
-            # recursion when trying to set the rulers.
+            #
+            # For some reason in ST2 we'll get into some sort of infinite
+            # recursion when trying to set the rulers.  Here we only update the
+            # "rulers" setting if changes have been made (i.e. a cursor ruler
+            # changes location).
+            #
             # Note: ST2 uses Python 2 so we can use the convenient `cmp()`
             # function which is unavailable in Python 3.
+            #
             if cmp(active_rulers, view.settings().get('rulers')) != 0:
                 view.settings().set('rulers', active_rulers)
         else:

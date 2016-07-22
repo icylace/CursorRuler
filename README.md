@@ -275,17 +275,6 @@ as well as the gutter text background color:
 - After you save changes to your user settings or your CursorRuler settings the changes take effect once the cursor state changes.
 
 
-### Known Major Bug for Sublime Text 2 Only
-
-While the plugin is enabled and a selection is attempted to be extended with mouse dragging it freezes the entire editor when moving the mouse pointer out of the view or onto the view's minimap.  This also occurs on empty views.  The freeze in this scenario is caused by `on_selection_modified()` attempting to call the ST2 API or even attempting to print to the console.
-
-The workaround is to do selection without mouse dragging or use mouse dragging while keeping the pointer within the view.
-
-I have attempted to use threading and other potential solutions to no avail. I have not found a proper solution to this in ST2.
-
-ST3 seems to completely avoid this problematic scenario.  I suppose it's due to its API being thread-safe.
-
-
 ### Known Minor Bugs
 
 - If CursorRuler is added to the `ignored_packages` list in the user preferences then upon saving the preferences any open files that have cursor rulers on them will retain those rulers as permanent static rulers.  The only way to remove those static rulers would be to either no longer ignore the plugin or reopen the files that are affected.

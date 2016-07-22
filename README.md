@@ -260,8 +260,6 @@ as well as the gutter text background color:
 
 ## Notes
 
-- In ST2 there is a major bug which is described below.
-
 - In ST3 the standard shortcut key for the `Wrap Paragraph at Ruler` menu item (`⌥⌘Q` on OS X, `Alt+Q` on Linux and Windows) is rebound to instead use the `CursorRuler: Wrap Lines` command for doing proper line wrapping.  However, using the `Wrap Paragraph at Ruler` menu item without the shortcut key still uses the normal wrapping command.  It seems there isn't a way to override ST's default menu items in that sort of way.  For details look [here](https://github.com/icylace/CursorRuler/issues/3).
 
 - While moving a selected group of text with the mouse the insertion-point cursor is not shown with its own dynamic ruler.  Though, this is probably preferable since this distinguishes the editing cursors from the insertion-point cursors.

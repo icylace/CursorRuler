@@ -1,5 +1,5 @@
 {
-  // See README.md for details.
+  // See https://github.com/icylace/CursorRuler/wiki/Settings for details.
 
   // The default: thick, not too distracting.
   "cursor_rulers": [-0.1, 0.2],

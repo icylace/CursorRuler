@@ -4,4 +4,4 @@ For details, please visit:
 https://github.com/icylace/CursorRuler
 
 Especially make sure to read the "Known Minor Bugs" section:
-https://github.com/icylace/CursorRuler#known-minor-bugs
+https://github.com/icylace/CursorRuler/wiki/Notes#known-minor-bugs

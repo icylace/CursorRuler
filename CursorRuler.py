@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.5
+CursorRuler 1.1.6
 
 A plugin for the Sublime Text editor which marks
 the current cursor position(s) using dynamic rulers.
@@ -154,8 +154,7 @@ class CursorRuler(object):
         cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
         cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')
 
-        # In Sublime Text 3 the `add_on_change()` method
-        # was not implemented until build 3013.
+        # In ST3 the `add_on_change()` was not implemented until build 3013.
         if st < 3000 or st >= 3013:
             cls.editor_settings.add_on_change(plugin_name.lower() + '-reload', cls.__setup)
             cls.settings.add_on_change('reload', cls.__setup)
@@ -252,6 +251,9 @@ class CursorRulerListener(sublime_plugin.EventListener):
             CursorRuler.reset(view)
 
     def on_selection_modified(self, view):
+        # For some reason the `sublime` module is sometimes not available.
+        if sublime is None: return
+
         active_window = sublime.active_window()
         if active_window is None: return
 

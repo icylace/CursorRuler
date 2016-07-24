@@ -119,14 +119,19 @@ class CursorRuler(object):
 
     @classmethod
     def __setup(cls):
+        default_cursor_rulers = [-0.1, 0.2]
+
         cls.rulers                  =      cls.editor_settings.get('rulers', [])
         cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
-        cls.cursor_rulers           =      cls.settings.get('cursor_rulers', [-0.1, 0.2])
+        cls.cursor_rulers           =      cls.settings.get('cursor_rulers', default_cursor_rulers)
         cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
 
+        # Ensure the rulers settings are valid lists.
         if not isinstance(cls.rulers, list):
             cls.rulers = []
+        if not isinstance(cls.cursor_rulers, list):
+            cls.cursor_rulers = default_cursor_rulers
 
 
     # ..........................................................................

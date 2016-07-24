@@ -125,6 +125,9 @@ class CursorRuler(object):
         cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
 
+        if not isinstance(cls.rulers, list):
+            cls.rulers = []
+
 
     # ..........................................................................
 

@@ -124,7 +124,6 @@ class CursorRuler(object):
         cls.rulers                  =      cls.editor_settings.get('rulers', [])
         cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
         cls.cursor_rulers           =      cls.settings.get('cursor_rulers', default_cursor_rulers)
-        cls.enabled                 = bool(cls.settings.get('enabled', True))
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
 
         # Ensure the rulers settings are valid lists.
@@ -132,6 +131,22 @@ class CursorRuler(object):
             cls.rulers = []
         if not isinstance(cls.cursor_rulers, list):
             cls.cursor_rulers = default_cursor_rulers
+
+        #
+        # We shouldn't draw our own rulers when our plugin is ignored.
+        # We need to check for this because if our plugin is active it will,
+        # until the next time Sublime Text is restarted, stay active after
+        # being disabled or being manually added to `ignored_packages` in
+        # the user settings.
+        #
+
+        # For some reason the `sublime` module is sometimes not available.
+        if sublime is None:
+            ignored_packages = []
+        else:
+            ignored_packages = sublime.load_settings('Preferences.sublime-settings').get('ignored_packages', [])
+
+        cls.enabled = 'CursorRuler' not in ignored_packages and bool(cls.settings.get('enabled', True))
 
 
     # ..........................................................................
@@ -282,12 +297,23 @@ class CursorRulerListener(sublime_plugin.EventListener):
     def on_command_mode_change(self):
         self.on_selection_modified(None)
 
+
 # ------------------------------------------------------------------------------
 
 
 # In ST3 this will get called automatically once the full API becomes available.
 def plugin_loaded():
     CursorRuler.init()
+
+
+# ------------------------------------------------------------------------------
+
+
+def plugin_unloaded():
+    # Remove the rulers we created and restore any regular rulers.
+    for window in sublime.windows():
+        for view in window.views():
+            CursorRuler.reset(view)
 
 
 # ------------------------------------------------------------------------------

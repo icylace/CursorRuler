@@ -175,7 +175,7 @@ class CursorRuler(object):
 
     @classmethod
     def is_enabled(cls, view):
-        return cls.enabled and not view.settings().get('is_widget')
+        return cls.enabled and not view.settings().get('is_widget', False)
 
 
     # ..........................................................................

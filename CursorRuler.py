@@ -210,19 +210,30 @@ class CursorRuler(object):
             view.settings().set('rulers', cls.rulers)
 
 
+    # ..........................................................................
+
+
+    @classmethod
+    def reset_all(cls):
+        # Remove the rulers we created and restore any regular rulers.
+        for window in sublime.windows():
+            for view in window.views():
+                view.settings().set('rulers', cls.rulers)
+
+
 # ------------------------------------------------------------------------------
 
 
 class CursorRulerToggleCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         if CursorRuler.is_enabled(self.view):
-            # About to disable so reset.
-            CursorRuler.reset(self.view)
+            # It's important that we turn of `enabled` before resetting.
+            # Otherwise, the dynamic rulers will stick around and not
+            # get cleared.
+            CursorRuler.enabled = False
+            CursorRuler.reset_all()
         else:
-            # About to enable so restore.
-            CursorRuler.draw(self.view)
-
-        CursorRuler.enabled = not CursorRuler.enabled
+            CursorRuler.enabled = True
 
 
 # ------------------------------------------------------------------------------
@@ -310,10 +321,7 @@ def plugin_loaded():
 
 
 def plugin_unloaded():
-    # Remove the rulers we created and restore any regular rulers.
-    for window in sublime.windows():
-        for view in window.views():
-            CursorRuler.reset(view)
+    CursorRuler.reset_all()
 
 
 # ------------------------------------------------------------------------------

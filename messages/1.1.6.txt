@@ -4,4 +4,3 @@ CursorRuler 1.1.6 Release Notes
 - Fix for #7:  Dynamic rulers were not being cleared when CursorRuler was disabled or toggled off.
 - Fix for #12:  The sublime module is sometimes unavailable for whatever reason.
 - Improved handling of the rulers and cursor_rulers settings when they have invalid values.
-- Improved handling of `is_widget`.

@@ -6,5 +6,9 @@ CursorRuler 1.1.1 Release Notes
 - Fix for #2:  Custom user settings were not being picked up.
 - Fix for #3:  Default line wrapping was behaving unexpectedly.  Created a new command called `CursorRuler: Wrap Lines` for doing line wrapping properly.
 - Started using Package Control messages.
-- Updated readme:  Made more use of GitHub Flavored Markdown.
-- Updated readme:  Noted that one of the minor bugs is ST2-only.
+- Updated README:
+  - Made more use of GitHub Flavored Markdown.
+  - Noted that one of the minor bugs is ST2-only.
+  - Described how to access the settings through the menu.
+  - Noted some stuff about the `Wrap Paragraph at Ruler` menu item.
+  - Some minor rearrangement.

@@ -1,5 +1,5 @@
 '''
-CursorRuler 1.1.5
+CursorRuler 1.1.6
 
 A plugin for the Sublime Text editor which marks
 the current cursor position(s) using dynamic rulers.
@@ -119,11 +119,34 @@ class CursorRuler(object):
 
     @classmethod
     def __setup(cls):
+        default_cursor_rulers = [-0.1, 0.2]
+
         cls.rulers                  =      cls.editor_settings.get('rulers', [])
         cls.indent_subsequent_lines = bool(cls.editor_settings.get('indent_subsequent_lines', True))
-        cls.cursor_rulers           =      cls.settings.get('cursor_rulers', [-0.1, 0.2])
-        cls.enabled                 = bool(cls.settings.get('enabled', True))
+        cls.cursor_rulers           =      cls.settings.get('cursor_rulers', default_cursor_rulers)
         cls.synchronized            = bool(cls.settings.get('synchronized', True))
+
+        # Ensure the rulers settings are valid lists.
+        if not isinstance(cls.rulers, list):
+            cls.rulers = []
+        if not isinstance(cls.cursor_rulers, list):
+            cls.cursor_rulers = default_cursor_rulers
+
+        #
+        # We shouldn't draw our own rulers when our plugin is ignored.
+        # We need to check for this because if our plugin is active it will,
+        # until the next time Sublime Text is restarted, stay active after
+        # being disabled or being manually added to `ignored_packages` in
+        # the user settings.
+        #
+
+        # For some reason the `sublime` module is sometimes not available.
+        if sublime is None:
+            ignored_packages = []
+        else:
+            ignored_packages = sublime.load_settings('Preferences.sublime-settings').get('ignored_packages', [])
+
+        cls.enabled = 'CursorRuler' not in ignored_packages and bool(cls.settings.get('enabled', True))
 
 
     # ..........................................................................
@@ -154,8 +177,7 @@ class CursorRuler(object):
         cls.editor_settings = sublime.load_settings('Preferences.sublime-settings')
         cls.settings        = sublime.load_settings(plugin_name + '.sublime-settings')
 
-        # In Sublime Text 3 the `add_on_change()` method
-        # was not implemented until build 3013.
+        # In ST3 the `add_on_change()` was not implemented until build 3013.
         if st < 3000 or st >= 3013:
             cls.editor_settings.add_on_change(plugin_name.lower() + '-reload', cls.__setup)
             cls.settings.add_on_change('reload', cls.__setup)
@@ -168,7 +190,7 @@ class CursorRuler(object):
 
     @classmethod
     def is_enabled(cls, view):
-        return cls.enabled and not view.settings().get('is_widget')
+        return cls.enabled and not view.settings().get('is_widget', False)
 
 
     # ..........................................................................
@@ -188,19 +210,35 @@ class CursorRuler(object):
             view.settings().set('rulers', cls.rulers)
 
 
+    # ..........................................................................
+
+
+    @classmethod
+    def reset_all(cls):
+        # Remove the rulers we created and restore any regular rulers.
+        for window in sublime.windows():
+            for view in window.views():
+                if not view.settings().get('is_widget', False):
+                    view.settings().set('rulers', cls.rulers)
+
+
 # ------------------------------------------------------------------------------
 
 
 class CursorRulerToggleCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         if CursorRuler.is_enabled(self.view):
-            # About to disable so reset.
-            CursorRuler.reset(self.view)
+            # It's important that we turn off `enabled` before resetting.
+            # Otherwise, the dynamic rulers will stick around and not
+            # get cleared.
+            CursorRuler.enabled = False
+            CursorRuler.reset_all()
         else:
-            # About to enable so restore.
+            CursorRuler.enabled = True
             CursorRuler.draw(self.view)
 
-        CursorRuler.enabled = not CursorRuler.enabled
+        CursorRuler.settings.set('enabled', CursorRuler.enabled)
+        sublime.save_settings('CursorRuler.sublime-settings')
 
 
 # ------------------------------------------------------------------------------
@@ -252,6 +290,9 @@ class CursorRulerListener(sublime_plugin.EventListener):
             CursorRuler.reset(view)
 
     def on_selection_modified(self, view):
+        # For some reason the `sublime` module is sometimes not available.
+        if sublime is None: return
+
         active_window = sublime.active_window()
         if active_window is None: return
 
@@ -272,12 +313,20 @@ class CursorRulerListener(sublime_plugin.EventListener):
     def on_command_mode_change(self):
         self.on_selection_modified(None)
 
+
 # ------------------------------------------------------------------------------
 
 
 # In ST3 this will get called automatically once the full API becomes available.
 def plugin_loaded():
     CursorRuler.init()
+
+
+# ------------------------------------------------------------------------------
+
+
+def plugin_unloaded():
+    CursorRuler.reset_all()
 
 
 # ------------------------------------------------------------------------------

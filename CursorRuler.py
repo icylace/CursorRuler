@@ -227,7 +227,7 @@ class CursorRuler(object):
 class CursorRulerToggleCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         if CursorRuler.is_enabled(self.view):
-            # It's important that we turn of `enabled` before resetting.
+            # It's important that we turn off `enabled` before resetting.
             # Otherwise, the dynamic rulers will stick around and not
             # get cleared.
             CursorRuler.enabled = False

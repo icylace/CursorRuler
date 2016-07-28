@@ -235,6 +235,10 @@ class CursorRulerToggleCommand(sublime_plugin.TextCommand):
             CursorRuler.reset_all()
         else:
             CursorRuler.enabled = True
+            CursorRuler.draw(self.view)
+
+        CursorRuler.settings.set('enabled', CursorRuler.enabled)
+        sublime.save_settings('CursorRuler.sublime-settings')
 
 
 # ------------------------------------------------------------------------------

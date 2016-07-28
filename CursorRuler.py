@@ -218,7 +218,8 @@ class CursorRuler(object):
         # Remove the rulers we created and restore any regular rulers.
         for window in sublime.windows():
             for view in window.views():
-                view.settings().set('rulers', cls.rulers)
+                if not view.settings().get('is_widget', False):
+                    view.settings().set('rulers', cls.rulers)
 
 
 # ------------------------------------------------------------------------------

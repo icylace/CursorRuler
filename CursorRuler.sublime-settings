@@ -24,8 +24,4 @@
 
   "enabled":      true,
   "synchronized": true
-
-  // Coming soon...
-  // Active ruler types.
-  // "ruler_types": ["cursor", "sticky", "static", "line"]
 }

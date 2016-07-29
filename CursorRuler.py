@@ -128,7 +128,10 @@ class CursorRuler(object):
 
         # Ensure the rulers settings are valid lists.
         if not isinstance(cls.rulers, list):
-            cls.rulers = []
+            if isinstance(cls.rulers, int) or isinstance(cls.rulers, float):
+                cls.rulers = [cls.rulers]
+            else:
+                cls.rulers = []
         if not isinstance(cls.cursor_rulers, list):
             cls.cursor_rulers = default_cursor_rulers
 

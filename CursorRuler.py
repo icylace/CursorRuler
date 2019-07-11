@@ -289,7 +289,7 @@ class CursorRulerListener(sublime_plugin.EventListener):
         else:
             CursorRuler.reset(view)
 
-    def on_selection_modified(self, view):
+    def on_selection_modified_async(self, view):
         # For some reason the `sublime` module is sometimes not available.
         if sublime is None: return
 
@@ -311,7 +311,7 @@ class CursorRulerListener(sublime_plugin.EventListener):
             CursorRuler.draw(active_view)
 
     def on_command_mode_change(self):
-        self.on_selection_modified(None)
+        self.on_selection_modified_async(None)
 
 
 # ------------------------------------------------------------------------------

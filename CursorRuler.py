@@ -248,16 +248,16 @@ class CursorRulerWrapLinesCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         if CursorRuler.is_enabled(self.view):
             # Temporarily turn off CursorRuler.
-            CursorRuler.reset(self.view)
             CursorRuler.enabled = False
+            CursorRuler.reset(self.view)
 
             # Do our line wrapping without the unwanted
             # influence of the dynamic cursor rulers.
             self.view.run_command('wrap_lines')
 
             # Reactivate CursorRuler.
-            CursorRuler.draw(self.view)
             CursorRuler.enabled = True
+            CursorRuler.draw(self.view)
         else:
             self.view.run_command('wrap_lines')
 
